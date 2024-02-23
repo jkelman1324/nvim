@@ -18,6 +18,7 @@ return {
         "scss",
         "sql",
         "svelte",
+        "dart",
       },
     },
     config = function(_, opts)
