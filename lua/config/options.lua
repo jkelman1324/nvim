@@ -2,3 +2,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 vim.o.mouse = ""
+vim.g.lazyvim_picker = "telescope"
+vim.wo.relativenumber = false
+vim.opt.wrap = true
