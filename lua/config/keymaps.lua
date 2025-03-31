@@ -11,9 +11,6 @@ keymap.set("n", "-", "<C-x>")
 -- Delete a word backwards
 keymap.set("n", "dw", "vb_d")
 
--- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
-
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
@@ -42,3 +39,18 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+-- Toggle LSP
+vim.keymap.set("n", "<leader>lt", function()
+  local clients = vim.lsp.get_active_clients()
+  if next(clients) then
+    vim.cmd("LspStop")
+    vim.diagnostic.enable(false)
+    print("LSP & diagnostics disabled")
+  else
+    vim.cmd("LspStart")
+    vim.diagnostic.enable()
+    print("LSP & diagnostics enabled")
+  end
+end, { desc = "Toggle LSP and diagnostics" })
+
